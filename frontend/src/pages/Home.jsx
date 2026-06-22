@@ -97,7 +97,7 @@ function HeroSection() {
 
 function AnimatedCounter({target, suffix='', prefix=''}) {
     const [count, setCount] = useState(0);
-    const ref = useRef<HTMLSpanElement>(null);
+    const ref = useRef(null);
     const hasAnimated = useRef(false);
 
     useEffect(() => {
@@ -154,7 +154,7 @@ function StatisticsSection() {
         <section
             id="estatisticas"
             className="w-full py-12 md:py-20"
-            style={{ background: 'var(--warn-sand)' }}
+            style={{ background: 'var(--warm-sand)' }}
         >
             <div ref={revealRef} className="max-w-[1200px] mx-auto px-6 lg:px-10 reveal">
                 <div className="flex flex-col md:flex-row items-center justify-around gap-8 md:gap-0">
@@ -164,7 +164,8 @@ function StatisticsSection() {
                             className="text-center flex flex-col items-center"
                             data-stagger={(index * 0.15).toString()}
                         >
-                            <span className="font-display text-[clamp(2rem, 4vw, 3rem)] text-deep-teal">
+                            <span className="font-display text-[clamp(2rem,4vw,3rem)] text-deep-teal">
+
                                 {stat.prefix === 'R$' ? (
                                     <>
                                         {'R$'}
@@ -214,7 +215,7 @@ function ProjectsSection() {
             title: 'Reforco Escolar Anjos do Saber',
             description:
                 'Reforco Escolar para criancas e adolecenstes no nivel fundamental.',
-            amount: '\u20AC185,000',
+            amount: 'R$ 185,000',
             progress: 95
         },
         {
@@ -227,7 +228,7 @@ function ProjectsSection() {
             title: 'Habitacao Social para Familias',
             description:
                 'Construcao e renovacao de habitacoes para familias em situacao de vunerabilidade.',
-            amount: '\u20AC320,000',
+            amount: 'R$ 320,000',
             progress: 78
         },
         {
@@ -239,7 +240,7 @@ function ProjectsSection() {
             title: 'Sopa fraterna',
             description:
                 'Sopa para familias carentes do bairro Planato entregue aos sabados.',
-            amount: '\u20AC70,000',
+            amount: 'R$ 70,000',
             progress: 78
         }
     ]
@@ -350,6 +351,7 @@ export default function Home() {
     return (
         <>
             <HeroSection />
+            <StatisticsSection />
             <ProjectsSection />
             <CTASection />
         </>
