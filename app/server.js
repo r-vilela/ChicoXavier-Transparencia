@@ -1,8 +1,9 @@
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
-const usuariosRoutes = require('./routes/usuarios');
 const authRoutes = require('./routes/auth');
+const projetoRoutes = require('./routes/projeto');
+const despesaRouter = require('./controllers/despesaController');
 
 const app = express();
 
@@ -22,7 +23,8 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/auth', authRoutes);
-app.use('/usuarios', usuariosRoutes);
+app.use('/projeto', projetoRoutes);
+app.use('/despesa', despesaRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
