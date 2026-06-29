@@ -26,7 +26,7 @@ function HeroSection() {
                             className="font-display text-[clamp(2rem,5vw,4rem)] leading-[1.1] mt-2 animate-fade-in-up"
                             style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}
                         >
-                            Investino no Futuro da Comunidade
+                            Investindo no Futuro da Comunidade
                         </h1>
                         <p
                             className="font-body text-base mt-2 max-w-[520px] animate-fade-in-up"
@@ -154,7 +154,7 @@ function StatisticsSection() {
         <section
             id="estatisticas"
             className="w-full py-12 md:py-20"
-            style={{ background: 'var(--warm-sand)' }}
+            style={{ background: 'var(--color-warm-sand)' }}
         >
             <div ref={revealRef} className="max-w-[1200px] mx-auto px-6 lg:px-10 reveal">
                 <div className="flex flex-col md:flex-row items-center justify-around gap-8 md:gap-0">

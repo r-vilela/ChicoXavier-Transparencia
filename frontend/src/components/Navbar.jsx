@@ -26,7 +26,7 @@ export default function Navbar() {
                 borderBottom: '1px solid rgba(163, 158, 148, 0.12)'
             }}
         >
-            <div className="max-w=[1200px] mx-auto h-full flex items-center justify-between px-6 lg:px-10">
+            <div className="max-w-[1200px] mx-auto h-full flex items-center justify-between px-6 lg:px-10">
                 <Link
                     to="/"
                     className="font-display font-semibold text-sm tracking-[2px] text-charcoal uppercase"
