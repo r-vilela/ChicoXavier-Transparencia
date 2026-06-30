@@ -195,7 +195,7 @@ function ExpensesTable() {
                     className='card-base p-0 overflow-hidden reveal'
                 >
                     <div className='table-wrapper' style={{ maxHeight: '560px', overflowY: 'auto' }}>
-                        <table className='data-table data-table--donations'>
+                        <table className='data-table data-table--expenses'>
                             <thead>
                                 <tr>
                                     <th>Data</th>
