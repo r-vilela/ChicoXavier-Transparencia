@@ -1,3 +1,4 @@
+import useReveal from '../hooks/useReveal'
 
 const donationsData = [
     { date:'16/06/2026', donor:'Maria Santos', amount: '25.000', project:'Habitacao Social', status:'Recebido'},
@@ -82,7 +83,7 @@ function SummaryCards() {
                         >
                             {card.icon}
                         </div>
-                        <p className="font-body text-sm mt-4" style={{ color: 'var(--slate)' }}>
+                        <p className="font-body text-sm mt-4" style={{ color: 'var(--color-slate)' }}>
                             {card.label}
                         </p>
                         <p
@@ -97,7 +98,7 @@ function SummaryCards() {
                             </span>
                         )}
                         {card.subtext && (
-                            <p className="font-body text-xs mt-2" style={{ color: 'var(--slate)' }}>
+                            <p className="font-body text-xs mt-2" style={{ color: 'var(--color-slate)' }}>
                                 {card.subtext}
                             </p>
                         )}
@@ -109,10 +110,160 @@ function SummaryCards() {
     )
 }
 
+function DonationsTable() {
+    const revealRef = useReveal(0.2);
+
+    return (
+        <section className="w=full py-12 mb:py-20" style={{ background: 'var(--color-cream)' }}>
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+
+                <div
+                    ref={revealRef}
+                    className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-6 reveal"
+                >
+                    <h2 className="font-display text-[clamp(1.75rem,3vw,2rem)]">
+                        Historico de Donativos
+                    </h2>
+                    <span className="font-body text-sm" style={{ color: 'var(--color-muted)'}}>
+                        {donationsData.length} registros
+                    </span>
+                </div>
+
+                <div
+                    ref={useReveal(0.2)}
+                    className='card-base p-0 overflow-hidden reveal'
+                >
+                    <div className='table-wrapper' style={{ maxHeight: '560px', overflowY: 'auto' }}>
+                        <table className='data-table data-table--donations'>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Doador</th>
+                                    <th className='text-right'>Valor</th>
+                                    <th>Projeto</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {donationsData.map((row, i) => (
+                                    <tr key={i}>
+                                        <td className='whitespace-nowrap' style={{ color: 'ver(--color-slate)' }}>
+                                            {row.date}
+                                        </td>
+                                        <td>{row.donor}</td>
+                                        <td className='text-right whitespace-nowrap'>
+                                            <span style={{ color: 'var(--color-muted)' }}>R$</span>
+                                            <span className='ml-0.5'>{row.amount}</span>
+                                        </td>
+                                        <td>{row.project}</td>
+                                        <td>
+                                            <span className='badge badge-success'>{row.status}</span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    )
+}
+
+function ExpensesTable() {
+    const revealRef = useReveal(0.2);
+
+    return (
+        <section className="w=full py-12 mb:py-20" style={{ background: 'var(--color-cream)' }}>
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+
+                <div
+                    ref={revealRef}
+                    className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-6 reveal"
+                >
+                    <h2 className="font-display text-[clamp(1.75rem,3vw,2rem)]">
+                        Historico de Despesas
+                    </h2>
+                    <span className="font-body text-sm" style={{ color: 'var(--color-muted)'}}>
+                        {expensesData.length} registros
+                    </span>
+                </div>
+
+                <div
+                    ref={useReveal(0.2)}
+                    className='card-base p-0 overflow-hidden reveal'
+                >
+                    <div className='table-wrapper' style={{ maxHeight: '560px', overflowY: 'auto' }}>
+                        <table className='data-table data-table--donations'>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descricao</th>
+                                    <th>Categoria</th>
+                                    <th className='text-right'>Valor</th>
+                                    <th>Projeto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {expensesData.map((row, i) => (
+                                    <tr key={i}>
+                                        <td className='whitespace-nowrap' style={{ color: 'ver(--color-slate)' }}>
+                                            {row.date}
+                                        </td>
+                                        <td>{row.description}</td>
+                                        <td>
+                                            <span className='badge badge-neutral'>{row.category}</span>
+                                        </td>
+                                        <td className='text-right whitespace-nowrap'>
+                                            <span style={{ color: 'var(--color-muted)' }}>R$</span>
+                                            <span className='ml-0.5'>{row.amount}</span>
+                                        </td>
+                                        <td>{row.project}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    )}
+
 export default function Transparencia() {
+    const headerRef = useReveal(0.3);
+
     return (
         <>
-            Transparencia
+            <div
+                className="w-full"
+                style={{
+                    background: 'linear-gradient(180deg, #ebe3d3 0%, #f6f1e8 100%',
+                    minHeight: '320px'
+                }}
+            >
+                <div
+                    ref={headerRef}
+                    className='max-w-[1200px] mx-auto px-6 lg:px-10 pt-12 md:pt-20 pb-8 reveal'
+                >
+                    <span className='section-label'>TRANSPARENCIA</span>
+                    <h1 className='font-display text-[clamp(2rem,5vw,4rem)] mt-2'>
+                        Transparencia Financeira
+                    </h1>
+                    <p className='font-body text-base mt-2 max-w-[640px]' style={{color: 'var(--color-slate)' }}>
+                        A Associacao Espirita Chico Xavier compromete-se com a total transparencia na gestao dos fundos.
+                        Aqui pode consultar todos os donativos recebidos e despesas realizadas.
+                    </p>
+                    <p className='font-body text-xs mt-2' style={{color: 'var(--muted)' }}>
+                        Ultima atualizacao: 27 de junho de 2026
+                    </p>
+                </div>
+            </div>
+
+            <SummaryCards />
+            <DonationsTable />
+            <ExpensesTable />
         </>
     )
 
