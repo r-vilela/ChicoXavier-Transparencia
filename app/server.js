@@ -4,6 +4,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const projetoRoutes = require('./routes/projeto');
 const despesaRouter = require('./routes/despesa');
+const doacaoRouter = require('./routes/doacao');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get('/health', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/projeto', projetoRoutes);
 app.use('/despesa', despesaRouter);
+app.use('/doacao', doacaoRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
