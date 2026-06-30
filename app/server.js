@@ -3,7 +3,7 @@ const session = require('express-session');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const projetoRoutes = require('./routes/projeto');
-const despesaRouter = require('./controllers/despesaController');
+const despesaRouter = require('./routes/despesa');
 
 const app = express();
 
